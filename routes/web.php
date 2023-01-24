@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -27,6 +28,8 @@ Route::get("/sitemap.xml", function(){
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth']);
+
+Route::post('/download', [DownloadController::class, 'store'])->name('download');
 
 
 

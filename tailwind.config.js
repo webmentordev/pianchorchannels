@@ -9,12 +9,15 @@ module.exports = {
     extend: {
       colors: {
         "main": "#0075E9",
-        "dark": "#25252B",
-        "dark-b": "#323238",
+        "dark": "#0F1119",
+        "dark-b": "#222531",
         "smoke": "#979292",
         "border-c": "#E8E8E8"
       },
       screens: {
+        '1145px': {
+          'max': "1145px"
+        },
         '965px': {
           'max': "965px"
         },

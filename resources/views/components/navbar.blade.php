@@ -1,9 +1,26 @@
-<nav class="w-full fixed top-0 left-0 z-30 bg-dark border-b border-dark-b animate-navshow">
+<nav class="w-full fixed top-0 left-0 z-30 border-b border-slate-200 animate-navshow bg-white">
     <div class=" max-w-[98%] m-auto px-4 py-3 400px:px-2 flex items-center justify-between">
-        <a class="flex items-center" href="{{ route('home') }}"><img class="mr-4 400px:w-[50px]" src="{{ asset('assets/logo-white.png') }}" width="70px"> <span class="text-white font-bold text-xl 400px:text-lg">Pi Anchor Channels</span></a>
-        <ul class="flex items-center 920px:hidden">
-            <a class="px-6 mx-2 text-white" href="{{ route('home') }}">Home</a>
-            <a class="px-6 mx-2 text-white" href="{{ route('about') }}">About</a>
+        <a class="flex items-center" href="{{ route('home') }}"><img class="mr-4 400px:w-[50px]" src="{{ asset('assets/logo.png') }}" alt="PiAnchorChannel logo" width="40px"> <span class="text-dark font-bold text-xl 400px:text-lg">Pi Anchor Channels</span></a>
+        <ul class="flex items-center 1145px:hidden text-dark font-semibold">
+            <a class="px-6 mx-2" href="{{ route('home') }}">Home</a>
+            <a class="px-6 mx-2" href="{{ route('about') }}">About</a>
+            <a class="px-6 mx-2" href="#">Products</a>
+            <a class="px-6 mx-2" href="#">Applications</a>
+            <div x-data="{ open: false }" class="font-semibold">
+                <span x-on:click="open = ! open" class="px-6 mx-2 cursor-pointer">Download</span>
+                <div x-show="open" x-on:click.self="open = false" x-cloak x-transition class="bg-dark bg-opacity-90 backdrop-blur-lg fixed top-0 left-0 h-screen w-full flex items-center justify-center">
+                    <div class="p-6 rounded-lg bg-white max-w-lg w-full">
+                        <p class="mb-3">Your message has been received and our sales agent will contact you and send you our product details</p>
+                        <form action="{{ route('download') }}" method="post">
+                            @csrf
+                            <input type="email" placeholder="Email Address"
+                            class="mb-3 w-full rounded focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 text-base outline-none text-gray-900 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out border-gray-200 border">
+                            <button type="submit"
+                            class="w-fit px-4 py-2 rounded-md bg-main text-white font-semibold">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             @auth
                 <a class="px-6 mx-2 text-white" href="{{ route('dashboard') }}">Dashboard</a>
                 <form action="{{ route('logout') }}" method="POST">
@@ -11,18 +28,21 @@
                     <button class="px-6 mx-2 text-white">Logout</button>
                 </form>
             @endauth
-            <a class="pk-6 ml-2 text-white font-bold py-2 px-4 bg-main rounded-sm " href="{{ route('contact') }}">Contact</a>
+            <a class="pk-6 ml-2 text-white font-bold py-2 px-4 bg-dark rounded-sm " href="{{ route('contact') }}">Contact</a>
         </ul>
-        <div x-data="{ open: false }" class="hidden 920px:block">
+        <div x-data="{ open: false }" class="hidden 1145px:block">
             <ul x-on:click="open = ! open" class="cursor-pointer">
-                <li class="h-[1px] bg-white my-2 w-[55px] 400px:w-[45px]"></li>
-                <li class="h-[1px] bg-white my-2 w-[55px] 400px:w-[45px]"></li>
-                <li class="h-[1px] bg-white my-2 w-[55px] 400px:w-[45px]"></li>
+                <li class="h-[1px] bg-dark my-2 w-[55px] 400px:w-[45px]"></li>
+                <li class="h-[1px] bg-dark my-2 w-[55px] 400px:w-[45px]"></li>
+                <li class="h-[1px] bg-dark my-2 w-[55px] 400px:w-[45px]"></li>
             </ul>
             <div x-show="open" x-on:click="open = false" x-cloak x-transition class="bg-dark bg-opacity-90 backdrop-blur-lg fixed top-0 left-0 h-screen w-full flex items-center justify-center">
                 <ul class="flex flex-col text-center">
                     <a class="px-6 mb-2 text-white text-2xl" href="{{ route('home') }}">Home</a>
                     <a class="px-6 mb-2 text-white text-2xl" href="{{ route('about') }}">About</a>
+                    <a class="px-6 mb-2 text-white text-2xl" href="#">Products</a>
+                    <a class="px-6 mb-2 text-white text-2xl" href="#">Applications</a>
+                    <a class="px-6 mb-2 text-white text-2xl" href="#">Downloads</a>
                     <a class="px-6 mb-2 text-white text-2xl" href="{{ route('contact') }}">Contact</a>
                     @auth
                         <a class="px-6 mb-2 text-white text-2xl" href="{{ route('dashboard') }}">Dashboard</a>
@@ -36,3 +56,23 @@
         </div>
     </div>
 </nav>
+
+<script>
+    import axios from 'axios';
+    function formData() {
+        return {
+            email: '',
+            submitForm() {
+                axios.post('/submit', {
+                    email: this.email
+                })
+                .then(response => {
+                    // code to handle the response
+                })
+                .catch(error => {
+                    // code to handle errors
+                })
+            }
+        }
+    }
+</script>

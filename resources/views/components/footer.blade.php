@@ -6,7 +6,7 @@
                 <h2 class="text-white mb-3 text-2xl font-bold">About Us</h2>
                 <p class="text-gray-100">A German company based in Berlin offers innovative anchoring solutions for the construction industry. Our team of development engineers is dedicated to innovating and developing new products based on customer demands.</p>
             </div>
-            <div class="p-6 w-full col-span-1">
+            <div class="p-6 w-full col-span-1 text-end">
                 <h2 class="text-white mb-3 text-2xl font-bold">Navigation</h2>
                 <ul class="flex flex-col">
                     <a class="mb-3 font-semibold text-gray-100" href="{{ route('home') }}">Home</a>
