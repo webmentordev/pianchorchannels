@@ -16,7 +16,7 @@
                     <li class="my-2"><i class="fas fa-check text-green-600"></i> Easy to customize</li>
                 </ul>
                 <h3 class="text-center font-semibold mb-3">Standard PI hot-rolled anchor channels</h3>
-                <a class="w-full lazyload" href="{{ asset('assets/products/product-2.png') }}" target="_blank"><img data-src="{{ asset('assets/products/product-2.png') }}" class="m-auto max-w-[600px] w-full lazyload"></a>
+                <a class="w-full lazyload" href="{{ asset('assets/products/product-2.png') }}" target="_blank"><img data-src="{{ asset('assets/products/product-2.png') }}" class="m-auto max-w-[600px] w-full lazyload" alt="Pi Anchor Channel Product"></a>
             </div>
         </div>
         <div x-data="{ open: false }">

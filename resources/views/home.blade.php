@@ -58,7 +58,7 @@
         <div class="max-w-[1200px] m-auto px-4 py-[100px]">
             <h1 class="font-bold text-3xl mb-6" data-aos="fade-right">What is a PI anchor channel?</h1>
             <p class="text-gray-600 leading-8" data-aos="fade-up">PI or post-installed anchor channel is a system consisting of a perforated channel profile and anchors, which can be installed in hardened concrete or masonry, or any other substrate in a pre-slot. The pre-slot is made on the substrate with the help of a specially designed-machine. The channel profile is fixed in the pre-slot with the help of chemical or mechanical anchors. Post-installed anchor channels are available in steel and stainless steel with matching channel bolts.</p>
-            <img data-src="{{ asset('assets/products/about.png') }}" class="lazyload max-w-[600px] m-auto w-full" data-aos="fade-up" data-aos-duration="1000">
+            <img data-src="{{ asset('assets/products/about.png') }}" class="lazyload max-w-[600px] m-auto w-full" data-aos="fade-up" data-aos-duration="1000" alt="Pi Anchor Channel Setting">
         </div>
     </section>
     <x-details />

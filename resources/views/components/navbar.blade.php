@@ -2,10 +2,10 @@
     <div class=" max-w-[98%] m-auto px-4 py-3 400px:px-2 flex items-center justify-between">
         <a class="flex items-center" href="{{ route('home') }}"><img class="mr-4 400px:w-[50px]" src="{{ asset('assets/logo.png') }}" alt="PiAnchorChannel logo" width="40px"> <span class="text-dark font-bold text-xl 400px:text-lg">Pi Anchor Channels</span></a>
         <ul class="flex items-center 1145px:hidden text-dark font-semibold">
-            <a class="px-6 mx-2" href="{{ route('home') }}">Home</a>
-            <a class="px-6 mx-2" href="{{ route('about') }}">About</a>
-            <a class="px-6 mx-2" href="#">Products</a>
-            <a class="px-6 mx-2" href="#">Applications</a>
+            <li><a class="px-6 mx-2" href="{{ route('home') }}">Home</a></li>
+            <li><a class="px-6 mx-2" href="{{ route('about') }}">About</a></li>
+            <li><a class="px-6 mx-2" href="#">Products</a></li>
+            <li><a class="px-6 mx-2" href="#">Applications</a></li>
             <div x-data="{ open: false }" class="font-semibold">
                 <span x-on:click="open = ! open" class="px-6 mx-2 cursor-pointer">Download</span>
                 <div x-show="open" x-on:click.self="open = false" x-cloak x-transition class="bg-dark bg-opacity-90 backdrop-blur-lg fixed top-0 left-0 h-screen w-full flex items-center justify-center">
@@ -38,14 +38,14 @@
             </ul>
             <div x-show="open" x-on:click="open = false" x-cloak x-transition class="bg-dark bg-opacity-90 backdrop-blur-lg fixed top-0 left-0 h-screen w-full flex items-center justify-center">
                 <ul class="flex flex-col text-center">
-                    <a class="px-6 mb-2 text-white text-2xl" href="{{ route('home') }}">Home</a>
-                    <a class="px-6 mb-2 text-white text-2xl" href="{{ route('about') }}">About</a>
-                    <a class="px-6 mb-2 text-white text-2xl" href="#">Products</a>
-                    <a class="px-6 mb-2 text-white text-2xl" href="#">Applications</a>
-                    <a class="px-6 mb-2 text-white text-2xl" href="#">Downloads</a>
-                    <a class="px-6 mb-2 text-white text-2xl" href="{{ route('contact') }}">Contact</a>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="{{ route('home') }}">Home</a></li>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="{{ route('about') }}">About</a></li>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="#">Products</a></li>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="#">Applications</a></li>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="#">Downloads</a></li>
+                    <li><a class="px-6 mb-2 text-white text-2xl" href="{{ route('contact') }}">Contact</a></li>
                     @auth
-                        <a class="px-6 mb-2 text-white text-2xl" href="{{ route('dashboard') }}">Dashboard</a>
+                        <li><a class="px-6 mb-2 text-white text-2xl" href="{{ route('dashboard') }}">Dashboard</a></li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="px-6 mb-2 text-white text-2xl">Logout</button>
