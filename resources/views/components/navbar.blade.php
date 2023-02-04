@@ -13,7 +13,7 @@
                         <p class="mb-3">Your message has been received and our sales agent will contact you and send you our product details</p>
                         <form action="{{ route('download') }}" method="post">
                             @csrf
-                            <input type="email" placeholder="Email Address"
+                            <input type="email" name="email" placeholder="Email Address" required
                             class="mb-3 w-full rounded focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 text-base outline-none text-gray-900 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out border-gray-200 border">
                             <button type="submit"
                             class="w-fit px-4 py-2 rounded-md bg-main text-white font-semibold">Send</button>
@@ -55,24 +55,11 @@
             </div>
         </div>
     </div>
-</nav>
 
-<script>
-    import axios from 'axios';
-    function formData() {
-        return {
-            email: '',
-            submitForm() {
-                axios.post('/submit', {
-                    email: this.email
-                })
-                .then(response => {
-                    // code to handle the response
-                })
-                .catch(error => {
-                    // code to handle errors
-                })
-            }
-        }
-    }
-</script>
+    @if (session('email_success'))
+        <div class="fixed flex items-center bottom-3 z-90 right-3 max-w-lg w-full bg-white border border-gray-200 p-6 rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 15 15"><path fill="none" stroke="#07b61b" d="M4 7.5L7 10l4-5m-3.5 9.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Z"/></svg>
+            <p class="ml-6">Message sent! Our agent will contact you.</p>
+        </div>
+    @endif
+</nav>

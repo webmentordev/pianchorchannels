@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactEmail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -48,12 +50,16 @@ class ContactController extends Controller
             'email' => 'required|email',
             'message' => 'required'
         ]);
-        Contact::create([
-            'name' => $request->name,
-            'subject' => $request->subject,
-            'email' => $request->email,
-            'message' => $request->message
-        ]);
+    
+        // Contact::create([
+        //     'name' => $request->name,
+        //     'subject' => $request->subject,
+        //     'email' => $request->email,
+        //     'message' => $request->message
+        // ]);
+
+        Mail::to("contact@webmentor.online")->send(new ContactEmail($request));
+        
         return back()->with('success', "Message successfully sent!");
     }
 }
